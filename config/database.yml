@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  database: expenses
+  encoding: unicode
+  max_connections: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  username: usipeuccrzcwdu
+  password: 13H5sXf7rmoAoaA2PfJ_-4A1rW

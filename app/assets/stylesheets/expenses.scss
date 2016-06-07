@@ -1,0 +1,370 @@
+// Helpers that don’t get baked into the final CSS
+@import "fonts";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'source-sans', 'Lucida Grande', 'Verdana', sans-serif;
+  color: #222222;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+}
+
+.page__header {
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+  position: relative;
+  z-index: 8000;
+}
+
+.logout {
+  display: inline-block;
+}
+
+.box_rounded {
+  border-radius: 4px;
+  text-align: left;
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#login_form {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+.box_body {
+  padding: .8em;
+}
+
+#login_form ul {
+  padding: 0px;
+}
+#login_form li {
+  display: inline-block;
+  list-style-type: none;
+  margin-left: 5px;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  width: 125px;
+  height: 100px;
+  border-radius: 50px;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.7)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  -webkit-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  -o-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  background-color: rgb(204, 204, 204);
+  color: white;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#login_form li.selected {
+  background-color: #25b61b;
+}
+#login_form li span {
+  display: block;
+  padding-top: 24px;
+  font-size: 20pt;
+  margin: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.field_label {
+  display: block;
+  margin-bottom: 6px;
+}
+label {
+  font-weight: bold;
+  float: left;
+  display: block;
+}
+.input_text {
+  font-size: 16pt;
+  height: 40px;
+  line-height: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0 0 6px;
+  margin: 0;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-top-color: #aaa;
+  color: #333;
+  background-color: #eee;
+  -webkit-appearance: none;
+  resize: none;
+  outline: 0;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0.7)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  -webkit-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  -moz-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  -o-transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  transition: border-color 0.2s linear, box-shadow 0.2s linear, background-color 0.2s linear;
+  background-color: rgb(250, 255, 189);
+  background-image: none;
+  color: rgb(0, 0, 0);
+}
+.input_check_box {
+  margin-left: 5px;
+  resize: none;
+}
+.clickable:hover {
+  cursor: pointer;
+}
+
+.button {
+  background-color: #5a78e9;
+  border-color: #375da5;
+  border-bottom-color: #1a2f57;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  height: 40px;
+  border: 1px solid;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  line-height: 38px;
+  text-decoration: none;
+  border-radius: 4px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100% !important;
+  font-size: 1em;
+  margin-top: 20px;
+}
+
+#new_expense_add {
+  display: relative;
+  float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+#new_expense_add button {
+  border-radius: 20px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0px;
+  color: rgb(67, 73, 83);
+  line-height: 36px;
+  text-align: left;
+  text-transform: uppercase;
+  width: auto;
+  font-size: 14px;
+  padding: 0px 15px;
+  font-weight: 500;
+  height: 36px;
+  margin: 7px 0px 7px 20px;
+  background-color: rgb(255, 255, 255);
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+
+#new_expense_form {
+  position: absolute;
+  z-index: 1000;
+  right: 10px;
+  top: 10px;
+  display: none;
+  width: 250px;
+}
+#new_expense_form .inline.add {
+  margin-top: 0px;
+  display: relative;
+  float: left;
+  width: 130px !important;
+}
+#new_expense_form .inline.cancel {
+  margin-top: 0px;
+  display: relative;
+  float: right;
+  width: 80px !important;
+  background-color: #787878;
+}
+
+#logged_in_as {
+  line-height: 36px;
+  height: 80px;
+  background-color: #5a78e9;
+  border-color: #375da5;
+  border-bottom-color: #1a2f57;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  color: white;
+  padding: 10px;
+  font-size: 26pt;
+}
+#logged_in_as a {
+  font-size: 8pt;
+  vertical-align: top;
+  text-decoration: none;
+  color: #DDDDDD;
+}
+#logged_in_as a:hover {
+  color: yellow;
+}
+
+button.prev, button.next {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0px;
+  color: rgb(67, 73, 83);
+  line-height: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 0;
+  padding-left: 5px;
+  font-weight: bold;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  background-clip: padding-box;
+  box-sizing: border-box;
+  color: #5a78e9;
+  vertical-align: middle;
+}
+button.prev:hover, button.next:hover {
+  background-color: yellow;
+}
+
+#data {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.horiz-half {
+  width: 100%;
+  max-width: 500px;
+  display: inline-table;
+  margin-right: 20px;
+}
+.horiz-half h4 {
+  background-color: #faffbd;
+  border-bottom: 1px solid #ccc;
+  padding: 6pt;
+  margin: 0px;
+}
+.horiz-half table {
+  width: 100%;
+  text-align: right;
+}
+.horiz-half .total {
+  font-weight: bold;
+}
+.horiz-half .delete-link a {
+  font-size: 8pt;
+}
+
+.delete-link {
+  border-radius: 20px;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0px;
+  color: rgb(67, 73, 83);
+  line-height: 14px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 14px;
+  font-size: 8px;
+  padding: 0px 4px;
+  font-weight: 500;
+  height: 14px;
+  margin: 2px 0px 2px 0px;
+  background-color: #ddd;
+  background-clip: padding-box;
+  box-sizing: border-box;
+}
+.delete-link:hover {
+  background-color: rgb(67, 73, 83);
+}
+.delete-link a {
+  color: #888;
+  text-decoration: none;
+}
+.delete-link:hover a {
+  color: white;
+}
+
+.page__footer {
+  margin: 0 auto;
+  padding: 10px 0 20px 0;
+  position: relative;
+  z-index: 8000;
+}
+
+h1 {
+  background-color: rgb(67, 73, 83);
+  text-align: center;
+  margin: 0px;
+  border-color: #375da5;
+  border-bottom-color: #1a2f57;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 1px rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.15);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.2)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  color: white;
+  padding: 10px;
+  font-size: 26pt;
+}

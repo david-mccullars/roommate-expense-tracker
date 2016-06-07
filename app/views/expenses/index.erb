@@ -1,0 +1,50 @@
+<% @paid_total = Hash.new(0.0) %>
+<% @due_total = Hash.new(0.0) %>
+
+<div id="data">
+  <% @expenses.each do |name, rows| %>
+  <div class="horiz-half">
+    <div class="box box_rounded">
+    <h4>Paid by <%= name.titleize %></h4>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th align="center">Shared?</th>
+        <td></td>
+      </tr>
+      <% @due_total[name] = 0.0 # We need an entry for the footer %>
+      <% rows.each do |expense| %>
+      <tr>
+        <td><%= expense.event_date.strftime('%-m/%-d') %></td>
+        <td><%= expense.description %></td>
+        <td><%= number_to_currency(expense.amount) %></td>
+        <td align="center"><%= '&#x2713;'.html_safe if expense.shared? %></td>
+        <% if @login.name.downcase == name.downcase %>
+          <td class="delete-link"><%= link_to 'x', destroy_expense_path(expense.id) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <% @paid_total[name] += expense.amount %>
+        <% @due_total[name] += expense.shared? ? expense.amount / 2.0 : expense.amount %>
+      </tr>
+      <% end %>
+      <tr class="total">
+        <td colspan=2>TOTAL</td>
+        <td><%= number_to_currency(@paid_total[name]) %></td>
+        <td align="center"><%= number_to_currency(@due_total[name]) %></td>
+        <td></td>
+      </th>
+    </table>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<% (debtor, v1), (debtee, v2) = @due_total.sort_by(&:last) # NOTE: We currently only support 2 logins %>
+<% if @month && debtor && v1 && debtee && v2 && v1 != v2 %>
+<footer class="page__footer">
+  <h1><%= debtor.titleize %> owes <%= debtee.titleize %> <%= number_to_currency(v2 - v1) %></h1>
+</footer>
+<% end %>

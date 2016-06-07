@@ -1,0 +1,57 @@
+<script>
+$(document).on('ready page:load', function() {
+  $('#login_form li').click(function() {
+    var id = $(this).attr('data-id');
+    $('#login_form li').removeClass('selected');
+    $(this).addClass('selected');
+    if (id == '+') {
+      $('#login_name').val('');
+      $('#login_form .name_field').show();
+    } else {
+      $('#login_name').val(id);
+      $('#login_form .name_field').hide();
+    }
+    return false;
+  });
+  $('#login_name').change(function(x) {
+    var val = $('#login_name').val();
+    $('#login_form li[data-id="' + val +'"]').click();
+  });
+  <% if @logins.blank? %>$('#login_form li[data-id="+"]').click();<% end %>
+});
+</script>
+<div id="login_form">
+  <div class="box box_rounded">
+    <div class="box_body">
+      <%= form_for(:login) do |f| %>
+        <ul>
+        <% @logins.each do |login| %>
+          <li data-id="<%= login.name %>">
+            <span><%= login.name.titleize %></span>
+          </li>
+        <% end %>
+        <% if @logins.count < 2 %>
+          <li data-id="+" class="selected">
+            <span style="font-size: 16pt; font-style: italic; padding: 2px;">Add<br/>New</br>User</span>
+          </li>
+        <% end %>
+        </ul>
+        <div class="field_label name_field">
+          <%= f.label :name, 'Name' %>
+        </div>
+        <div class="field_label name_field">
+          <%= f.text_field :name, autocapitalize: 'off', autocorrect: 'off', autofocus: 'autofocus', class: 'input_text', size: 30, tabindex: 1, type: 'name' %>
+        </div>
+        <div class="field_label">
+          <%= f.label :password, 'Password' %>
+        </div>
+        <div class="field_label">
+          <%= f.text_field :password, autocapitalize: 'off', autocorrect: 'off', autofocus: 'autofocus', class: 'input_text', size: 30, tabindex: 2, type: 'password' %>
+        </div>
+        <div class="field_label">
+          <%= f.submit 'Login', class: 'button', tabindex: 3 %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
