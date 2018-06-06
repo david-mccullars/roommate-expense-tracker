@@ -1,13 +1,13 @@
-Sequel.migration do 
-  change do
-    create_table :logins do
-      primary_key :id
-      citext :name,                   null: false
-      text :password_digest,          null: false
-      timestamp   :created_at,        null: false, default: Sequel.function(:now)
-      timestamp   :deleted_at
+class CreateLogins < ActiveRecord::Migration[5.1]
 
-      index [:name], unique: true, where: 'deleted_at IS NULL'
+  def change
+    create_table :logins do |t|
+      t.citext :name,                   null: false
+      t.text :password_digest,          null: false
+      t.timestamp   :created_at,        null: false
+      t.timestamp   :deleted_at
     end
+    add_index :logins, [:name], unique: true, where: 'deleted_at IS NULL'
   end
+
 end

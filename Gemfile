@@ -1,27 +1,25 @@
+ruby '2.4.1'
 source 'https://rubygems.org'
 
-gem 'awesome_print',  require: false
-gem 'bcrypt', '~> 3.1.7'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'pg', '~> 0.18'
-gem 'rack-ssl-enforcer'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
-gem 'sass-rails'
-gem 'sequel-paranoid'
-gem 'sequel-rails'
-gem 'sequel_pg', require: false # Performance boost -- needs to be installed but not required
-gem 'sequel_secure_password'
-gem 'uglifier'
-
-group :development, :test do
-  gem 'byebug'
-  gem 'puma'
-  gem 'pry'
-  gem 'pry-byebug'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails'
+gem 'acts_as_paranoid', github: 'ActsAsParanoid/acts_as_paranoid'
+gem 'bcrypt'
+gem 'ruby-saml'
+gem 'jwt'
+gem 'pg'
+gem 'puma'
+gem 'webpacker'
+
 group :development do
-  gem 'listen'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'byebug'
+  gem 'foreman'
 end

@@ -1,0 +1,3 @@
+alter table schema_migrations rename column filename to version;
+update schema_migrations set version =  substring(version from '[0-9]+');
+delete from schema_migrations where version = '20160612053905';

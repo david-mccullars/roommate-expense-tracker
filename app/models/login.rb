@@ -1,9 +1,9 @@
-class Login < Sequel::Model
+class Login < ApplicationRecord
 
-  plugin :paranoid, enable_default_scope: true
-  plugin :secure_password
+  acts_as_paranoid
+  has_secure_password
 
-  one_to_many :expenses, reciprocal: :login, dependent: :destroy
+  has_many :expenses, inverse_of: :login, dependent: :destroy
 
   def self.ordered
     order(:name)

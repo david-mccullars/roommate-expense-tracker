@@ -1,12 +1,11 @@
-class Expense < Sequel::Model
+class Expense < ApplicationRecord
 
-  plugin :paranoid, enable_default_scope: true
+  acts_as_paranoid
 
-  many_to_one :login, reciprocal: :expenses
+  belongs_to :login, inverse_of: :expenses
 
-  def self.for_month(date=Time.now)
-    where { event_date >= date.beginning_of_month.to_date }.
-    where { event_date <= date.end_of_month.to_date }
+  def self.for_month(date = Time.current)
+    where(event_date: date.beginning_of_month.to_date .. date.end_of_month.to_date)
   end
 
   def self.for_login(name)

@@ -1,0 +1,10 @@
+production:   com
+production-europe: eu
+production-anthem: at
+staging:      biz
+canary:       us
+playground:   cc
+bleedingedge: be
+workshop:     ws
+sandbox:      bz
+mobile:       mobi

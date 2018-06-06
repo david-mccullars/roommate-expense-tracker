@@ -1,11 +1,11 @@
 class LoginsController < ApplicationController
 
   def show
-    @logins = Login.ordered
+    render json: Login.ordered, except: [:password_digest, :deleted_at]
   end
 
   def create
-    name, password = params[:login].values_at(:name, :password)
+    name, password = params.values_at(:name, :password)
     login = Login.where(name: name).first
     if login
       login = login.authenticate(password)
@@ -13,16 +13,10 @@ class LoginsController < ApplicationController
       login = Login.create(name: name, password: password, password_confirmation: password)
     end
     if login
-      session[:login] = login.id
-      redirect_to '/'
+      render json: { token: json_web_token_encode(login.name) }
     else
-      redirect_to '/login'
+      authorize_failure
     end
-  end
-
-  def destroy
-    reset_session
-    redirect_to '/login'
   end
 
 end

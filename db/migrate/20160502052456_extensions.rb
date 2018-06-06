@@ -1,9 +1,11 @@
-Sequel.migration do
-  up do
-    run %[CREATE EXTENSION IF NOT EXISTS citext]
+class Extensions < ActiveRecord::Migration[5.1]
+
+  def up
+    execute %[CREATE EXTENSION IF NOT EXISTS citext]
   end
 
-  down do
-    run %[DROP EXTENSION IF EXISTS citext]
+  def down
+    execute %[DROP EXTENSION IF EXISTS citext]
   end
+
 end

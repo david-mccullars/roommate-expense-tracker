@@ -1,0 +1,2 @@
+bundle: cd client && yarn start
+api: bundle exec puma -q -p 3000 -w 2 -t 8:16

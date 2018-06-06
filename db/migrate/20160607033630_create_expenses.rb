@@ -1,16 +1,18 @@
-Sequel.migration do
-  change do
-    create_table :expenses do
-      primary_key :id
-      decimal     :amount,            null: false
-      int         :login_id,          null: false
-      text        :description,       null: false
-      date        :event_date,        null: false
-      timestamp   :created_at,        null: false, default: Sequel.function(:now)
-      timestamp   :deleted_at
+class CreateExpenses < ActiveRecord::Migration[5.1]
 
-      foreign_key [:login_id], :logins, on_delete: :cascade, on_update: :cascade
-      index [:event_date, :login_id]
+  def change
+    create_table :expenses do |t|
+      t.decimal     :amount,            null: false
+      t.references  :login              null: false
+      t.text        :description,       null: false
+      t.boolean     :shared,            null: false, default: true
+      t.date        :event_date,        null: false
+      t.timestamp   :created_at,        null: false
+      t.timestamp   :deleted_at
+
+      #foreign_key [:login_id], :logins, on_delete: :cascade, on_update: :cascade
     end
+    add_index :expenses, [:event_date, :login_id]
   end
+
 end

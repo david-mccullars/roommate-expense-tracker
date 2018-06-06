@@ -1,30 +1,22 @@
 class ExpensesController < ApplicationController
 
-  before_action :authenticate
+  before_action :require_authorization
 
   def index
-    @month = Date.strptime(params[:month], '%Y%m') rescue Time.now
-    @expenses = {}
-    Login.ordered.each do |login|
-      @expenses[login.name] = Expense.for_month(@month).where(login_id: login.id).order(:event_date, :id)
-    end
+    month = Date.strptime(params[:month], '%Y%m') rescue Time.current
+    expenses = Expense.includes(:login).for_month(month).order(:event_date, :id).group_by { |e| e.login.name }
+    render json: { month: month, expenses: expenses }, except: [:login_id, :created_at, :deleted_at]
   end
 
   def create
-    @expense = Expense.new(params[:expense].merge(login_id: @login.id))
-    @expense.save
-    redirect_to '/'
+    expense = Expense.new(params.permit(:amount, :description, :event_date, :shared).merge(login_id: login.id))
+    expense.save!
+    render json: expense, except: [:login_id, :created_at, :deleted_at]
   end
 
   def destroy
-    Expense[params[:id]].destroy
-    redirect_to '/'
-  end
-
-  private
-
-  def authenticate
-    @login = Login.where(id: session[:login]).first or redirect_to '/login'
+    destroyed = Expense.where(login_id: login.id, id: params.fetch(:id).to_i).destroy_all
+    render json: destroyed.first
   end
 
 end

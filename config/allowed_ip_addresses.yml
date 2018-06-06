@@ -1,0 +1,29 @@
+deployments#environment_current:
+- 107.21.10.133     # production
+- 52.49.187.197     # production-europe
+- 34.203.122.103    # production-anthem
+- 54.174.171.79     # staging
+- 52.207.80.88      # canary
+- 54.68.147.71      # bleedingedge
+- 52.40.80.42       # playground
+- 52.39.204.235     # sandbox
+- 50.112.25.67      # workshop
+
+deployments#active:
+- 216.136.52.18     # Bloomfire office - TEMPORARY
+- 72.48.127.18      # Daniel's home
+
+deployments#notify:
+- 216.136.52.18     # Bloomfire office - TEMPORARY
+- 72.48.127.18      # Daniel's home
+
+jira#create:
+- 104.192.136.0/21  # JIRA
+- 131.103.26.0/23   # JIRA
+- 131.103.26.0/24   # JIRA
+- 131.103.27.0/24   # JIRA
+- 131.103.29.0/24   # JIRA
+- 165.254.226.0/23  # JIRA
+- 165.254.226.0/24  # JIRA
+- 165.254.227.0/24  # JIRA
+- 131.103.28.0/24   # JIRA
